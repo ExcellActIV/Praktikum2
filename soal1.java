@@ -1,34 +1,51 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class soal1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        try {
-            System.out.print("Enter a number: ");
-            long N = sc.nextLong();
-            System.out.println("N can be fitted in:");
+        System.out.print("Enter a number of case test: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String[] inputs = new String[n];
         
-            if (Long.MAX_VALUE < N) {
-                System.out.println("N can't be fitted anywhere.");
-            } 
-            if (Byte.MIN_VALUE <= N && N <= Byte.MAX_VALUE) {
+        for (int i = 0; i < n; i++) {
+            inputs[i] = sc.nextLine();
+        }
+        
+        for (int i = 0; i < n; i++) {
+                BigInteger number = new BigInteger(inputs[i]);
+                System.out.println("\n"+inputs[i] + " can be fitted in:");
+                
+            // Cek untuk byte
+            if (number.compareTo(BigInteger.valueOf(Byte.MIN_VALUE)) >= 0 && 
+                number.compareTo(BigInteger.valueOf(Byte.MAX_VALUE)) <= 0) {
                 System.out.println("* byte");
             }
-            if (Short.MIN_VALUE <= N && N <= Short.MAX_VALUE) {
+            
+            // Cek untuk short
+            if (number.compareTo(BigInteger.valueOf(Short.MIN_VALUE)) >= 0 && 
+                number.compareTo(BigInteger.valueOf(Short.MAX_VALUE)) <= 0) {
                 System.out.println("* short");
             }
-            if (Integer.MIN_VALUE <= N && N <= Integer.MAX_VALUE) {
+            
+            // Cek untuk int
+            if (number.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) >= 0 && 
+                number.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) <= 0) {
                 System.out.println("* int");
             }
-            if (Long.MIN_VALUE <= N && N <= Long.MAX_VALUE) {
+            
+            // Cek untuk long
+            if (number.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) >= 0 && 
+                number.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
                 System.out.println("* long");
             }
-        } catch (Exception e) {
-            System.out.println("N can be fitted in:");
-            System.out.println("N can't be fitted anywhere.");
-            
-        } finally {
-            sc.close();
+            if (number.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+                System.out.println(inputs[i] + " can't be fitted anywhere.");
+            }
         }
+        
+        sc.close();
     }
 }
