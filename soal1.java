@@ -9,19 +9,19 @@ public class soal1 {
             System.out.println("N can be fitted in:");
         
             if (Long.MAX_VALUE < N) {
-                System.err.println("N can't be fitted anywhere.");
+                System.out.println("N can't be fitted anywhere.");
             } 
             if (Byte.MIN_VALUE <= N && N <= Byte.MAX_VALUE) {
-                System.err.println("* byte");
+                System.out.println("* byte");
             }
             if (Short.MIN_VALUE <= N && N <= Short.MAX_VALUE) {
-                System.err.println("* short");
+                System.out.println("* short");
             }
             if (Integer.MIN_VALUE <= N && N <= Integer.MAX_VALUE) {
-                System.err.println("* int");
+                System.out.println("* int");
             }
             if (Long.MIN_VALUE <= N && N <= Long.MAX_VALUE) {
-                System.err.println("* long");
+                System.out.println("* long");
             }
         } catch (Exception e) {
             System.out.println("N can be fitted in:");
